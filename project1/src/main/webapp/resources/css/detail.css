@@ -1,0 +1,14 @@
+@charset "UTF-8";
+body{
+	background-color: gray;
+}
+.id1{
+	height: 30px;
+}
+.id2{
+	height: 20px;
+}
+.id3{
+	height: 500px;
+	background-color: white;
+}
