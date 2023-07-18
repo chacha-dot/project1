@@ -9,6 +9,10 @@ h1{
 	margin: 0 auto;
 	display: block;
 }
+button{
+	margin: 0 auto;
+	display: block;
+}
 table{
 	margin: 0 auto;
 	widows: 800px;
@@ -35,4 +39,5 @@ td{
 }
 tr:hover{
 	background-color: #e2bca5;
+	font-weight: 900;
 }

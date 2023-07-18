@@ -5,39 +5,39 @@
 }
 body{
 	margin: 0 auto;
+	display: block;
 	width: 800px;
 	height: 1000px;
-	padding: 10px;
-	
+	padding: 10px;	
 }
-.btitle{
+.btitle1{
 	font-size: xx-large;
 	font-weight: 900;
 	font-family: 'Nanum Gothic', sans-serif;
 }
-.no{
+.no1{
 	float: left;
 	font-size: x-small;
 	font-weight: normal;
 	color: gray;
 }
-.write{
+.write1{
 	float: left;
 	font-size: x-small;
 	font-weight: normal;
 	color: gray;	
 }
-.date{
+.date1{
 	float: left;
 	font-size: x-small;
 	font-weight: normal;
 	color: gray;
 }
-.like{
+.like1{
 	font-size: x-small;
 	font-weight: normal;
 	color: gray;
 }
-.content{
+.content1{
 	font-family: 'Nanum Gothic', sans-serif;
 }

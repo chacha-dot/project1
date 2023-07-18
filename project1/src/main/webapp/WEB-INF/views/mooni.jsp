@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="menu.jsp" %>
+	<h1>문의사항</h1>
+	<img class="img1" alt="" src="./img/images.jpg" height="300px">
 
 </body>
 </html>

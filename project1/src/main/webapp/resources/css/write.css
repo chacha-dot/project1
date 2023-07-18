@@ -1,0 +1,36 @@
+@charset "UTF-8";
+h1{
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	color : #e2bca5;
+}
+.img1{
+	margin: 0 auto;
+	display: block;
+}
+.write-div{
+	margin: 0 auto;
+	width: 800px;
+	height: auto;
+	padding: 10px;
+}
+.write-div input{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 30px;
+}
+.write-div textarea{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 500px;
+	margin: 5px 0px;
+}
+.btn2{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 30px;
+}

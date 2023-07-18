@@ -29,6 +29,12 @@ public class BoardService {
 	public BoardDTO detail(String bno) {
 		return boardDAO.detail(bno);
 	}
+
+
+	public void write(BoardDTO dto) {
+		boardDAO.write(dto);//void 로 만든 이유는 실행만 시키고 결과를 받지 않아도 되어서입니다.
+		//insert만 시키고 값은 받지 않아도 되기때문입니다. (어떤 새로운 값을 볼것이 아니기때문)
+	}//select를 제외한 나머지는 영향받은 행의 수(int)를 받아오기도 합니다.
 		
 		
 		

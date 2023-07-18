@@ -15,5 +15,10 @@
 		FROM board
 		WHERE bno=#{bno}
 	</select>
+	
+	<insert id="write" parameterType="boardDTO">
+		INSERT INTO board (btitle, bcontent, bwrite)
+		VALUES (#{btitle},#{bcontent},#{bwrite});
+	</insert>
 
 </mapper>
