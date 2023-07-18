@@ -1,14 +1,43 @@
 @charset "UTF-8";
+.img1{
+	margin: 0 auto;
+	display: block;
+}
 body{
-	background-color: gray;
+	margin: 0 auto;
+	width: 800px;
+	height: 1000px;
+	padding: 10px;
+	
 }
-.id1{
-	height: 30px;
+.btitle{
+	font-size: xx-large;
+	font-weight: 900;
+	font-family: 'Nanum Gothic', sans-serif;
 }
-.id2{
-	height: 20px;
+.no{
+	float: left;
+	font-size: x-small;
+	font-weight: normal;
+	color: gray;
 }
-.id3{
-	height: 500px;
-	background-color: white;
+.write{
+	float: left;
+	font-size: x-small;
+	font-weight: normal;
+	color: gray;	
+}
+.date{
+	float: left;
+	font-size: x-small;
+	font-weight: normal;
+	color: gray;
+}
+.like{
+	font-size: x-small;
+	font-weight: normal;
+	color: gray;
+}
+.content{
+	font-family: 'Nanum Gothic', sans-serif;
 }

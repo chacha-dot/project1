@@ -19,12 +19,12 @@ public class BoardDAO {
 	private SqlSession sqlSession; 
 
 	public List<Map<String, Object>> boardList() {
-		return sqlSession.selectList("board.boardList");
+		return sqlSession.selectList("board.boardList"); //list에 받아올 것들
 	}
 
 	public BoardDTO detail(String bno) {
 		return sqlSession.selectOne("board.detail", bno); // 앞에는 네임스페이스.아이디, 값
-	}
+	}//sqlSession id는 spring> database-context.xml에서 지정해주었다.
 	
 	
 		

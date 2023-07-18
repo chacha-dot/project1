@@ -1,9 +1,20 @@
 @charset "UTF-8";
+h1{
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	color : #e2bca5;
+}
+.img1{
+	margin: 0 auto;
+	display: block;
+}
 table{
 	margin: 0 auto;
 	widows: 800px;
 	height: 500px;
 	border-collapse: collapse;
+	color: black;
 }
 th{
 	height: 50px;
@@ -23,5 +34,5 @@ td{
 	width: 50%;
 }
 tr:hover{
-	background-color: green;
+	background-color: #e2bca5;
 }

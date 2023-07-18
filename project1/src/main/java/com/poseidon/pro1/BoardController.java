@@ -19,7 +19,7 @@ public class BoardController {
 	@GetMapping("/board")
 	public String board(Model model) {
 		//서비스에서 값 가져오기
-		model.addAttribute("list", boardService.boardList());		
+		model.addAttribute("list", boardService.boardList());
 		
 		return "board";
 	}
