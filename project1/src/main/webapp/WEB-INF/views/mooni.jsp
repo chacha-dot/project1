@@ -9,7 +9,7 @@
 <body>
 	<%@ include file="menu.jsp" %>
 	<h1>문의사항</h1>
-	<img class="img1" alt="" src="./img/images.jpg" height="300px">
+	<img class="img1" alt="" src="./img/images.jpeg" height="300px">
 
 </body>
 </html>

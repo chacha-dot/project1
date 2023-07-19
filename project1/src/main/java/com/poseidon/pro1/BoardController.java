@@ -6,10 +6,12 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BoardController {
@@ -19,6 +21,8 @@ public class BoardController {
 	//Autowired말고 Resource로 연결
 	@Resource(name="boardService") //boardservice에서 naming한것을 가져온다.
 	private BoardService boardService;
+	
+	
 	
 	@GetMapping("/board")
 	public String board(Model model) {
@@ -48,6 +52,7 @@ public class BoardController {
 	
 	@PostMapping("/write")
 	public String write(HttpServletRequest request) {
+				
 		//사용자가 입력한 데이터 변수에 담기
 		BoardDTO dto = new BoardDTO();
 		dto.setBtitle(request.getParameter("title"));
@@ -58,6 +63,20 @@ public class BoardController {
 		boardService.write(dto);
 		
 		return "redirect:board";//다시 컨트롤러 지나가기 GET 방식으로 갑니다.
+	}
+	
+	//삭제가 들어온다면
+	@GetMapping("/delete")
+	public String delete(@RequestParam(value = "bno", required = false, defaultValue = "0") int bno) {
+		//@RequestParam : HttpServletRequest의 getParameter();
+		
+		BoardDTO dto = new BoardDTO();
+		dto.setBno(bno);
+		//dto.setBwrite(null) 사용자의 정보
+		//추후 로그인을 하면 사용자의 정보도 담아서 보냅니다.
+		boardService.delete(dto);
+		
+		return "redirect:board";
 	}
 
 }

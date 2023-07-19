@@ -12,7 +12,7 @@
 <%@ include file="menu.jsp" %>
 	<h1>보드</h1>
 	<a href="./index">
-	<img class="img1" alt="" src="./img/images.jpg" height="300px">
+	<img class="img1" alt="" src="./img/images.jpeg" height="300px">
 	</a>
 	
 		<table>

@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body{
+	background-color: #F8DEC5;
+}
 h1{
 	text-align: center;
 	margin: 0 auto;
@@ -14,6 +17,7 @@ button{
 	display: block;
 }
 table{
+	background-color: #F8DEC5;
 	margin: 0 auto;
 	widows: 800px;
 	height: 500px;

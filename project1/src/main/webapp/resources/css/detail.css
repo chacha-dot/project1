@@ -4,17 +4,27 @@
 	display: block;
 }
 body{
-	margin: 0 auto;
-	display: block;
-	width: 800px;
-	height: 1000px;
-	padding: 10px;	
+	background-color: #F8DEC5;
 }
+div{
+	background-color: #F8DEC5;
+	margin: 0 auto;
+}
+
 .btitle1{
+	float: left;
 	font-size: xx-large;
 	font-weight: 900;
 	font-family: 'Nanum Gothic', sans-serif;
 }
+.img2{
+	float: left;
+	height: 10px;
+}
+.img3{
+	height: 10px;
+}
+
 .no1{
 	float: left;
 	font-size: x-small;
@@ -34,6 +44,12 @@ body{
 	color: gray;
 }
 .like1{
+	float: left;
+	font-size: x-small;
+	font-weight: normal;
+	color: gray;
+}
+.ip1{
 	font-size: x-small;
 	font-weight: normal;
 	color: gray;

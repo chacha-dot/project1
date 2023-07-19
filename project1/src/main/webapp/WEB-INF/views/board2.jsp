@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+<%@ include file="menu.jsp" %>
 	<h1>보드2</h1>
-	<img class="img1" alt="" src="./img/images.jpg" height="300px">
+	<img class="img1" alt="" src="./img/images.jpeg" height="300px">
 
 </body>
 </html>
