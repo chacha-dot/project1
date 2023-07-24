@@ -23,13 +23,13 @@ public class BoardService {
 	//이 서비스의 기능
 	//보드 리스트 불러오는 메소드
 	
-	public List<Map<String, Object>> boardList() {
+	public List<BoardDTO> boardList() {
 		return boardDAO.boardList();
 	}
 
 
-	public BoardDTO detail(String bno) {
-		BoardDTO dto = boardDAO.detail(bno);
+	public BoardDTO detail(BoardDTO dto2) {
+		BoardDTO dto = boardDAO.detail(dto2);
 		//여기서 ip 뽑아오기
 		//ip 중간에 하트 넣기
 		if (dto.getBip() != null && dto.getBip().indexOf(".") != -1) {
@@ -61,6 +61,12 @@ public class BoardService {
 
 	public void delete(BoardDTO dto) {
 		boardDAO.delete(dto);
+	}
+
+
+	public void edit(BoardDTO dto) {
+		
+		boardDAO.edit(dto);
 	}
 
 

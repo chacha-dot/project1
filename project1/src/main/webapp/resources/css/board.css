@@ -1,12 +1,17 @@
 @charset "UTF-8";
 body{
-	background-color: #F8DEC5;
+	background-color: white;
+	font-family: 'Noto Serif KR', serif;
 }
 h1{
 	text-align: center;
 	margin: 0 auto;
 	display: block;
-	color : #e2bca5;
+	color : #90DDF5;
+}
+.head1{
+	background-color: #04ACDC;
+	color: white;
 }
 .img1{
 	margin: 0 auto;
@@ -17,16 +22,16 @@ button{
 	display: block;
 }
 table{
-	background-color: #F8DEC5;
+	background-color: white;
 	margin: 0 auto;
 	widows: 800px;
-	height: 500px;
+	height: auto;
 	border-collapse: collapse;
 	color: black;
 }
 th{
 	height: 50px;
-	background-color: gray;
+	background-color: #808081;
 }
 td{
 	text-align: center;
@@ -42,6 +47,6 @@ td{
 	width: 50%;
 }
 tr:hover{
-	background-color: #e2bca5;
+	background-color: #04ACD4;
 	font-weight: 900;
 }

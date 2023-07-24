@@ -8,8 +8,9 @@ nav{
 	top: 0;
 	width: 100%;
 	height: 50px;
-	background-color: #e2bca5;
-	font-family: 'Nanum Gothic', sans-serif;
+	background-color: white;
+	font-family: 'Noto Serif KR', serif;
+	color: #04ACD4;
 }
 
 nav ul{
@@ -33,3 +34,13 @@ nav li:hover{
 	height: 50px;
 	font-size: 0;
 }
+.login5{
+	float: right;
+	font-size: 5px;
+	width: 150px;
+}
+.login2{
+	float: right;
+	font-size: xx-small;
+}
+

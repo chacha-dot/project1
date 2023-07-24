@@ -7,17 +7,17 @@
 <title>Index</title>
 <style type="text/css">
 body{
-	background-color: #F8DEC5;
+	background-color: white;
 }
 h1{
 	text-align: center;
-	color : #e2bca5;
+	color : #04ACD4;
 }
 a{
 	text-align: center;
 	margin: 0 auto;
 	display: block;
-	color : #e2bca5;
+	color : #04ACD4;
 }
 .img1{
 	margin: 0 auto;
@@ -30,9 +30,9 @@ a{
 </head>
 <body>
 <%@ include file="menu.jsp" %>
-	<h1>인덱스</h1>
-	<img class="img1" alt="" src="./img/images.jpeg" height="300px">
-	<a href="./board">보드로 가기</a>
+	<br><br><br><br><br><br>
+	
+	<a href="./board"><img class="img1" alt="" src="./img/images.jpeg" height="100px"></a>
 	
 </body>
 </html>
