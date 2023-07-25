@@ -52,6 +52,8 @@ public class BoardController {
 		return "detail";
 	}
 	
+	
+	
 	@GetMapping("/write")
 	public String write(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -90,38 +92,55 @@ public class BoardController {
 	
 	//삭제가 들어온다면
 	@GetMapping("/delete")
-	public String delete(@RequestParam(value = "bno", required = false, defaultValue = "0") int bno) {
+	public String delete(@RequestParam(value = "bno", required = false, defaultValue = "0") int bno, HttpSession session) {
 		//@RequestParam : HttpServletRequest의 getParameter();
-		
-		BoardDTO dto = new BoardDTO();
-		dto.setBno(bno);
-		//dto.setBwrite(null) 사용자의 정보
-		//추후 로그인을 하면 사용자의 정보도 담아서 보냅니다.
-		boardService.delete(dto);
-		
-		return "redirect:board";
+		//로그인 여부확인.
+		//System.out.println("mid="+ session.getAttribute("mid"));
+		if (session.getAttribute("mid") != null) {
+			BoardDTO dto = new BoardDTO();
+			dto.setBno(bno);
+			dto.setM_id((String)session.getAttribute("mid"));
+			//dto.setBwrite(null) 사용자의 정보
+			//추후 로그인을 하면 사용자의 정보도 담아서 보냅니다.
+			boardService.delete(dto);
+			
+			return "redirect:/board";
+		} else {
+			return "redirect:/login";
+		}
+			
 	}
 
 	@GetMapping("/edit")
 	public ModelAndView edit(HttpServletRequest request) {
-		
+		//로그인 하지 않으면 로그인 화면으로 던져주세요
 		HttpSession session = request.getSession();
-		
-		ModelAndView mv = new ModelAndView("edit"); //edit.jsp 열거야
+		ModelAndView mv = new ModelAndView(); 
+		if (session.getAttribute("mid") != null) {
+			
+			
+			//dto를 하나 만들어서 거기에 담겠습니다. = bno, mid
+			BoardDTO dto = new BoardDTO();
+			dto.setBno(util.strToInt(request.getParameter("bno")));
+			
+			
+			//내글만 수정할수있도록 세션에 있는 mid도 보냅니다.
+			dto.setM_id((String)session.getAttribute("mid"));
+			
+			//데이터베이스에 bno를 보내서 dto를 얻어옵니다.
+			BoardDTO result = boardService.detail(dto);
 				
-		//dto를 하나 만들어서 거기에 담겠습니다. = bno, mid
-		BoardDTO dto = new BoardDTO();
-		dto.setBno(util.strToInt(request.getParameter("bno")));
-		
-		
-		//내글만 수정할수있도록 세션에 있는 mid도 보냅니다.
-		dto.setM_id((String)session.getAttribute("mid"));
-		
-		//데이터베이스에 bno를 보내서 dto를 얻어옵니다.
-		BoardDTO result = boardService.detail(dto);
-		
-		//mv에 실어 보냅니다.
-		mv.addObject("dto", result);
+			if (result != null) { //내 글을 수정
+				mv.addObject("dto", result);
+				mv.setViewName("edit"); //이동할 jsp명을 적어줍니다.
+			} else { //다른사람글이라면 null. 경고창으로 이동
+				mv.setViewName("warning");
+			}
+			
+			//mv에 실어 보냅니다.
+		} else {
+			mv.setViewName("redirect:/login");
+		}
 		return mv;
 	}
 	

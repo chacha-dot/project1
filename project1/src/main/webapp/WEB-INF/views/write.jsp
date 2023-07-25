@@ -17,7 +17,33 @@
 body{
 	background-color: white;
 }
+#msg{
+	color: red;
+	font-weight: 900;
+}
 </style>
+
+<script type="text/javascript">
+function check() {
+	let msg = document.getElementById("msg");
+	let title = document.getElementById("title");
+	let sn = document.getElementById("summernote");
+	
+	if (title.value.length < 5) {
+		let text = "<P>타이틀은 5글자 이상이어야 합니다.</P>";
+		msg.innerHTML = text;
+		title.focus();
+		return false;
+	}
+	if (sn.value.length < 15) {
+		let text = "<P>내용은 4글자 이상이어야 합니다.</P>";
+		msg.innerHTML = text;
+		sn.focus();
+		return false;
+	}
+}
+</script>
+
 </head>
 <body>
 <%@ include file="menu.jsp" %>
@@ -26,8 +52,9 @@ body{
 	<img class="img1" alt="" src="./img/images.jpeg" height="100px">
 	
 	<div class="write-div">
-		<form action="./write" method="post">
-			<input type="text" name="title">
+		<form action="./write" method="post" onsubmit="return check()">
+			<input id="title" type="text" name="title">
+			<span id="msg"></span>
 			<hr>
 			<textarea id="summernote" name="content"></textarea>
 			<button class="btn2" type="submit">글쓰기</button>

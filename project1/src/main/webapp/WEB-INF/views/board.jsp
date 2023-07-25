@@ -8,10 +8,21 @@
 <meta charset="UTF-8">
 <title>Board</title>
 <link rel="stylesheet" href="./css/board.css">
+
+<!-- 스크립트 -->
+<script type="text/javascript">
+
+</script>
+
 </head>
 <body>
 <%@ include file="menu.jsp" %>
 	<h1>보드</h1>
+	
+	<a href="./index">
+	<img class="img1" alt="" src="./img/images.jpeg" height="100px">
+	</a>
+	
 	<%-- 길이검사 : ${fn:length(list) } --%>
 	<c:choose>
 		<c:when test="${fn:length(list) gt 0}">
@@ -38,9 +49,7 @@
 		</c:when>
 		<c:otherwise>출력할 데이터가 없습니다.</c:otherwise>
 	</c:choose>
-	<a href="./index">
-	<img class="img1" alt="" src="./img/images.jpeg" height="100px">
-	</a>
+	
 	
 	<!-- 로그인하면 글쓰기 버튼이 보여요 -->
 	

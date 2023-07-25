@@ -29,13 +29,19 @@
 	<delete id="delete" parameterType="boardDTO">
 		DELETE 
 		FROM board
-		WHERE bno=#{bno}
+		WHERE bno=#{bno} and m_no=(SELECT m_no FROM members WHERE m_id=#{m_id});
 	</delete>
 	
 	<update id="edit" parameterType="boardDTO">
 		UPDATE board 
 		SET btitle=#{btitle}, bcontent=#{bcontent}
 		WHERE bno=#{bno}
+	</update>
+	
+	<update id="likeUp" parameterType="boardDTO">
+		UPDATE board
+		SET blike= blike +1
+		WHERE bno =#{bno}
 	</update>
 
 </mapper>

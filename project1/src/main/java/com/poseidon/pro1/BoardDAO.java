@@ -38,6 +38,10 @@ public class BoardDAO {
 		sqlSession.update("board.edit", dto);
 	}
 
+	public void iLike(BoardDTO dto2) {
+		sqlSession.update("board.likeUp", dto2);
+	}
+
 	
 	
 	

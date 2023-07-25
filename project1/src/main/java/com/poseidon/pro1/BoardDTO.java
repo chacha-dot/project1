@@ -3,6 +3,7 @@ package com.poseidon.pro1;
 public class BoardDTO {
 	private int bno, blike;
 	private String btitle, bcontent, bdate, bip, m_name, m_id;
+	
 	public int getBno() {
 		return bno;
 	}
