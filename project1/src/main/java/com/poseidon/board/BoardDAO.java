@@ -1,7 +1,6 @@
-package com.poseidon.pro1;
+package com.poseidon.board;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,8 +17,8 @@ public class BoardDAO {
 	@Named("sqlSession")
 	private SqlSession sqlSession; 
 
-	public List<BoardDTO> boardList() {
-		return sqlSession.selectList("board.boardList"); //list에 받아올 것들
+	public List<BoardDTO> boardList(PageDTO page) {
+		return sqlSession.selectList("board.boardList", page); //list에 받아올 것들
 	}
 
 	public BoardDTO detail(BoardDTO dto2) {
@@ -40,6 +39,10 @@ public class BoardDAO {
 
 	public void iLike(BoardDTO dto2) {
 		sqlSession.update("board.likeUp", dto2);
+	}
+
+	public int totalCount() {
+		return sqlSession.selectOne("board.totalCount");
 	}
 
 	

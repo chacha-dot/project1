@@ -1,4 +1,4 @@
-package com.poseidon.pro1;
+package com.poseidon.login;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -68,6 +68,11 @@ public class LoginController {
 			
 	
 		return "redirect:index";
+	}
+	
+	@GetMapping("/join")
+	public String join() {
+		return "join";
 	}
 
 }

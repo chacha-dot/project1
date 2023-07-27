@@ -97,7 +97,7 @@ function check() {
 	</form>
 	<button class="login3">아이디찾기</button>
 	<button class="login3">비밀번호찾기</button>
-	<button class="login3">회원가입</button>
+	<button class="login3"><a href="./join">회원가입</a></button>
 	
 	<br>
 </div>

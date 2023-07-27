@@ -10,16 +10,14 @@
 <script type="text/javascript">
 	function edit(){
 		if (confirm("수정하시겠습니까?")){
-			location.href="./edit?bno=${dto.bno }"
+			location.href="./edit?bno=${dto.bno }";
 		}
 	}
 	function del(){
 		let chk = confirm("삭제하시겠습니까?");
 		if(chk){
 			location.href="./delete?bno=${dto.bno }";
-		} else {
-			
-		}
+		} 
 	}
 </script>
 </head>

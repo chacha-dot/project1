@@ -1,4 +1,7 @@
-package com.poseidon.pro1;
+package com.poseidon.board;
+
+import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.poseidon.util.Util;
+
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 @Controller
 public class BoardController {
@@ -25,9 +32,34 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@GetMapping("/board")
-	public String board(Model model) {
+	public String board(@RequestParam(value ="pageNo", required = false, defaultValue ="1") int pageNo, Model model) {
 		//서비스에서 값 가져오기
-		model.addAttribute("list", boardService.boardList());
+		//페이지네이션인포 -> 값넣고 -> DB -> jsp
+		PaginationInfo paginationInfo = new PaginationInfo();
+		paginationInfo.setCurrentPageNo(pageNo); //현재 페이지 번호
+		paginationInfo.setRecordCountPerPage(10); //한 페이지에 게시되는 게시물건수
+		paginationInfo.setPageSize(10); //페이징 리스트의 사이즈
+		
+		//전체 글 수 가져오는 명령문장
+		int totalCount = boardService.totalCount();
+		paginationInfo.setTotalRecordCount(totalCount);//전체 게시물 건 수
+		
+		int firstRecordIndex = paginationInfo.getFirstRecordIndex(); //시작위치
+		int recordCountPerPage = paginationInfo.getRecordCountPerPage();//페이지당 몇개
+		
+		PageDTO page = new PageDTO();
+		page.setFirstRecordIndex(firstRecordIndex);
+		page.setRecordCountPerPage(recordCountPerPage);
+		
+		//System.out.println(firstRecordIndex);
+		//System.out.println(recordCountPerPage);
+		//System.out.println(pageNo);
+		//System.out.println(totalCount);
+		List<BoardDTO> list = boardService.boardList(page);
+		
+		model.addAttribute("list", list);
+		//페이징 관련 정보가 있는 PaginationInfo 객체를 모델에 반드시 넣어준다.
+		model.addAttribute("paginationInfo", paginationInfo);
 		
 		return "board";
 	}
@@ -77,7 +109,10 @@ public class BoardController {
 			dto.setBcontent(request.getParameter("content"));
 			dto.setM_id((String)session.getAttribute("mid"));//세션에서 가져옴
 			dto.setM_name((String)session.getAttribute("mname"));//세션에서 가져옴
-			
+			dto.setUuid(UUID.randomUUID().toString());
+			System.out.println(dto.getUuid());
+			System.out.println(dto.getUuid().length());
+			System.out.println("========================");
 			//Service -> DAO -> mybatis -> DB로 보내서 저장하기
 			boardService.write(dto);
 			

@@ -1,4 +1,4 @@
-package com.poseidon.pro1;
+package com.poseidon.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

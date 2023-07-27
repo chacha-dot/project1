@@ -1,9 +1,16 @@
-package com.poseidon.pro1;
+package com.poseidon.board;
 
 public class BoardDTO {
 	private int bno, blike;
-	private String btitle, bcontent, bdate, bip, m_name, m_id;
+	private String btitle, bcontent, bdate, bip, m_name, m_id, uuid;
 	
+	
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 	public int getBno() {
 		return bno;
 	}

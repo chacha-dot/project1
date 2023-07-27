@@ -1,14 +1,14 @@
-package com.poseidon.pro1;
+package com.poseidon.board;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.poseidon.util.Util;
 
 @Service("boardService") //BoardService타입이기도 하고 boardService라고 이름지어준다.
 public class BoardService {
@@ -24,8 +24,8 @@ public class BoardService {
 	//이 서비스의 기능
 	//보드 리스트 불러오는 메소드
 	
-	public List<BoardDTO> boardList() {
-		return boardDAO.boardList();
+	public List<BoardDTO> boardList(PageDTO page) {
+		return boardDAO.boardList(page);
 	}
 
 
@@ -79,6 +79,11 @@ public class BoardService {
 	public void edit(BoardDTO dto) {
 		
 		boardDAO.edit(dto);
+	}
+
+
+	public int totalCount() {
+		return boardDAO.totalCount();
 	}
 
 

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +12,20 @@
 
 <!-- 스크립트 -->
 <script type="text/javascript">
-
+	function linkPage(pageNo){
+		location.href = "./board?pageNo="+pageNo;
+	}	
 </script>
-
+<style type="text/css">
+#paging{
+	text-align: center;
+}
+</style>
 </head>
 <body>
 <%@ include file="menu.jsp" %>
 	<h1>보드</h1>
-	
+	${paginationInfo }
 	<a href="./index">
 	<img class="img1" alt="" src="./img/images.jpeg" height="100px">
 	</a>
@@ -46,6 +53,10 @@
 						
 				</c:forEach>
 			</table>
+			<div id="paging">
+			<br>
+			<ui:pagination paginationInfo = "${paginationInfo}"	type="image"	jsFunction="linkPage"/>
+			</div>
 		</c:when>
 		<c:otherwise>출력할 데이터가 없습니다.</c:otherwise>
 	</c:choose>
